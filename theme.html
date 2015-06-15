@@ -98,7 +98,7 @@ a:focus {
     {{ login_form }}
 
     {% else %}
-    <header {% if is_post %} class="short"{% endif %}>
+    <!-- <header {% if is_post %} class="short"{% endif %}> -->
    <div id="panel">
      <div class="inf">
        <div  class="avatar1"><img src="{{ site.avatar }}"></div> <!-- добавить ссылку на фото -->
@@ -174,7 +174,7 @@ a:focus {
               </ul>
 		</div>
 	</div></div></div></div>
-    </header>
+    <!-- </header> -->
 
     <div class="container content">
 
@@ -216,10 +216,14 @@ a:focus {
         {% endif %}
 
         {% if posts %}
-        <div class="posts">
+  	<div class="col-lg-9 col-md-8 ">
+
+
+	<div class="post">
+
           {% for post in posts %}
-          <div class="item">
-              <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+	      <div class="postovoj">
+              <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
               <div class="post-content" data-type-cleanup="true">
                 {{ post.content }}
               </div>
@@ -238,6 +242,8 @@ a:focus {
           </div>
           {% endfor %}
         </div>
+      </div>
+
 
         {% if not is_tag %}
         {% if pagination.next or pagination.prev %}
@@ -313,7 +319,7 @@ a:focus {
         </noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         {% endif %}
-</div></div>
+    </div></div>
 
       {% elif post.type == 'page' %}
 
