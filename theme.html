@@ -80,28 +80,13 @@ a:focus {
 .active {
 	background-position: right 12px;
 }
-
-
 	body {
-
 	  width: 100%;
-
 	}
-
-
 	.dddq {
-
-
 	  color: rgb(195, 0, 0);
-  font-size: 20px;
-
-
+      font-size: 20px;
 	}
-
-
-
-
-
 </style>
 
 
@@ -116,7 +101,7 @@ a:focus {
     <header {% if is_post %} class="short"{% endif %}>
    <div id="panel">
      <div class="inf">
-       <div  class="avatar1"><img src="img/photo.jpg"></div> <!-- добавить ссылку на фото -->
+       <div  class="avatar1"><img src="{{ site.avatar }}"></div> <!-- добавить ссылку на фото -->
        <p>{{ site.bio|striptags|truncate(280, false, '...') }}</p>
        <br>
        <table border="0"><tr><td>Работа</td><td><a href="http://zaikin.su">ZogIT</a></td></tr>
@@ -177,7 +162,7 @@ a:focus {
   	    <div class="container-fluid">
           <div class="rwow">
             <div class="menuu">
-              <a href="#" class="navbar-brand" >  <div class="avatar">	<img src="img/photo.jpg"> </div> </a>
+              <a href="#" class="navbar-brand" >  <div class="avatar">	<img src="{{ site.avatar }}"> </div> </a>
               <ul class="nav nav-tabs">
               <li><p class="slide hjk"><a href="#" class="vatb btn-slide">Обо мне</a></p> </li>
               <li><a class="hjk" href="{{ site.base_url }}">Блог</a> </li>
@@ -193,61 +178,36 @@ a:focus {
 
     <div class="container content">
 
-      <div class="bio">
-        <a class="user-avatar">
-          <img src="{{ site.avatar }}" />
-        </a>
-        <div class="user-avatar-hover">
-          <h3>{{ site.author }}</h3>
-          <p>{{ site.bio|striptags|truncate(280, false, '...') }}</p>
-          <ul class="user-social-links">
-            {% if site.twitter %}
-            <li>
-              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
-                <i class="icon-twitter"></i> Twitter
-              </a>
-            </li>
-            {% endif %}
+      <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        <div class="eee1">
+          <div class="Posts">
+              <h2 class="widget-title">Latest Posts</h2>
+              <div class="widget-content popular-posts">
+                {% if posts_recent %}
+                <ul>
+                {% for post in posts_recent %}
+                {% if loop.index <= 5 and loop.index > 0 %}
+                  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+                {% endif %}
+              </div>
 
-            {% if site.facebook %}
-            <li>
-              <a href="{{ site.facebook }}" title="Facebook" target="_blank">
-                <i class="icon-facebook-sign"></i> Facebook
-              </a>
-            </li>
-            {% endif %}
+    	  </div>
 
-            {% if site.googleplus %}
-            <li>
-              <a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">
-                <i class="icon-google-plus"></i> Google+
-              </a>
-            </li>
-            {% endif %}
 
-            {% if site.linkedin %}
-            <li>
-              <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">
-                <i class="icon-linkedin"></i> LinkedIn
-              </a>
-            </li>
-            {% endif %}
-            <li>
-              <a href="{{ site.atom_url }}" title="RSS" target="_blank">
-                <i class="icon-rss"></i> RSS
-              </a>
-            </li>
-          </ul>
-          <ul>
-            {% if theme.social.like %}<li>{{ theme.social.like }}</li>{% endif %}
-            {% if theme.social.follow %}<li>{{ theme.social.follow }}</li>{% endif %}
-            {% if theme.social.share %}<li>{{ theme.social.share }}</li>{% endif %}
-          </ul>
-          <div class="arrow"></div>
-        </div>
-      </div>
-
-      <div class="post">
+          <div class="tagcloud">
+            <h2 class="widget-title">Tag Cloud</h2>
+            {% if site.tags %}
+                <ul>
+                  {% for tag in site.tags %}
+                  <li><a href="/tag/{{ tag.name }}">#{{ tag.name }}</a></li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+          </div>
+    </div></div>
 
       {% if is_home or is_tag %}
 
@@ -291,9 +251,15 @@ a:focus {
         {% endif %}
 
       {% elif post %}
+	<div class="col-lg-9 col-md-8 ">
 
-        <div class="post-content">
-          <h1>{{ post.title }}</h1>
+
+	<div class="post">
+
+
+	<div class="postovoj">
+
+          <h2>{{ post.title }}</h2>
           <div data-type-cleanup="true">
             {{ post.content }}
             {% if post.type == 'link' or post.type == 'webclip' %}
@@ -347,6 +313,7 @@ a:focus {
         </noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         {% endif %}
+</div></div>
 
       {% elif post.type == 'page' %}
 
