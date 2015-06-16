@@ -180,7 +180,7 @@ a:focus {
 
       <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <div class="eee1">
-          <div class="Posts">
+        <!--  <div class="Posts">
               <h2 class="widget-title">Latest Posts</h2>
               <div class="widget-content popular-posts">
                 {% if posts_recent %}
@@ -196,15 +196,14 @@ a:focus {
 
     	  </div>
 
-
+-->
           <div class="tagcloud">
             <h2 class="widget-title">Tag Cloud</h2>
             {% if site.tags %}
-                <ul>
                   {% for tag in site.tags %}
-                  <li><a href="/tag/{{ tag.name }}">#{{ tag.name }}</a></li>
+                  <a href="/tag/{{ tag.name }}">#{{ tag.name }}</a>&nbsp;
                   {% endfor %}
-                </ul>
+
                 {% endif %}
           </div>
     </div></div>
