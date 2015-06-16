@@ -16,7 +16,8 @@
     <!-- css -->
     <!-- <link rel="stylesheet" type="text/css" href="{{ assets('css/style.css') }}"> -->
     <link href="{{ assets('css/bootstrap.css') }}" rel="stylesheet">
-
+  <!-- Social Share Kit CSS -->
+  <link rel="stylesheet" href="{{ assets('css/social-share-kit.css') }}" type="text/css">
     <!-- font and scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
@@ -108,50 +109,44 @@ a:focus {
        <tr><td>Обучение</td><td><a href="http://edu.zaikin.pro">СурГУ</a></td></tr>
        <tr><td>Ссылкочки</td><td><a href="http://lnk.zaikin.pro">Links</a></td></tr></table>
 
-          <ul class="user-social-links">
+          <!--<ul class="user-social-links"> -->
             {% if site.twitter %}
-            <li>
+
               <a href="{{ site.twitter }}" title="Twitter" target="_blank">
                 <i class="icon-twitter"></i> Twitter
               </a>
-            </li>
+             &nbsp;
             {% endif %}
 
             {% if site.facebook %}
-            <li>
+
               <a href="{{ site.facebook }}" title="Facebook" target="_blank">
                 <i class="icon-facebook-sign"></i> Facebook
               </a>
-            </li>
+            &nbsp;
             {% endif %}
 
             {% if site.googleplus %}
-            <li>
+
               <a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">
                 <i class="icon-google-plus"></i> Google+
               </a>
-            </li>
+            &nbsp;
             {% endif %}
 
             {% if site.linkedin %}
-            <li>
+
               <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">
                 <i class="icon-linkedin"></i> LinkedIn
               </a>
-            </li>
+            &nbsp;
             {% endif %}
-            <li>
+
               <a href="{{ site.atom_url }}" title="RSS" target="_blank">
                 <i class="icon-rss"></i> RSS
               </a>
-            </li>
-          </ul>
-          <ul>
-            {% if theme.social.like %}<li>{{ theme.social.like }}</li>{% endif %}
-            {% if theme.social.follow %}<li>{{ theme.social.follow }}</li>{% endif %}
-            {% if theme.social.share %}<li>{{ theme.social.share }}</li>{% endif %}
-          </ul>
-
+            &nbsp;
+       
 
 		  </div>
 
@@ -291,11 +286,13 @@ a:focus {
               <span class="post-date">Posted on {{ post.created_at|format_date }}</span>
             </p>
           <!--</a>-->
-          <ul class="post-options">
-            <li>{{ theme.social.share }}</li>
-            <li>{{ theme.social.follow }}</li>
-            <li>{{ theme.social.like }}</li>
-          </ul>
+<div class="ssk-group ssk-count">
+    <a href="" class="ssk ssk-facebook"></a>
+    <a href="" class="ssk ssk-twitter"></a>
+    <a href="" class="ssk ssk-google-plus"></a>
+    <a href="" class="ssk ssk-vk"></a>
+    <a href="" class="ssk ssk-linkedin"></a>
+</div>
         </div>
 
         <div class="pagination">
