@@ -18,11 +18,13 @@
     <link href="{{ assets('css/bootstrap.css') }}" rel="stylesheet">
   <!-- Social Share Kit CSS -->
   <link rel="stylesheet" href="{{ assets('css/social-share-kit.css') }}" type="text/css">
+      <script type="text/javascript" src="your-path/social-share-kit.js"></script>
     <!-- font and scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 
     <!-- standard google analytics -->
     {% if site.analytics %}
@@ -146,7 +148,7 @@ a:focus {
                 <i class="icon-rss"></i> RSS
               </a>
             &nbsp;
-       
+
 
 		  </div>
 
@@ -356,6 +358,7 @@ a:focus {
           g.src = "{{ assets('js/expanse.min.js') }}";
           s.parentNode.insertBefore(g, s);
       }(document, 'script'));
+      SocialShareKit.init();
     </script>
 
   </body>
